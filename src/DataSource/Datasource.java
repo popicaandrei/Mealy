@@ -71,51 +71,5 @@ public class Datasource {
     }
 }
 
-//        public static void main(String[] args) {
-//
-//            try{
-//                Connection connection = DriverManager.getConnection("jdbc:sqlite:A:\\mealy\\Mealy\\MealyDB.db");
-//                Statement statement = connection.createStatement();
-//
-//                //statement.execute("insert into Recepies (id_ingr,RecepyName,MeatName,VegetableName,DiaryName,Time,Calories) " +
-//                    //"values ('15','Spaghetti Bolognese','Chopped Beaf','Tomatoes','',15,200)");
-//
-//               // statement.execute("insert into Diary(DiaryName, Calories) values ('ppk',32)");
-//                //statement.execute("insert into Diary(DiaryName, Calories) values ('ldsdfs7',32)");
-//
-//
-////                statement.execute("update Recepies set RecepyName ='Spaghetti Carbonara', VegetableName='Garlic',MeatName='Beaf'" +
-////                        "DiaryName='SourCream', Time= 15,Calories=320 where id_recipe=1 ");
-//
-//
-//
-//
-////                statement.execute("delete from Diary where Calories=32");
-//
-////            statement.execute("insert into contacts (name,phone,email) values ('ppk',334344,'mail2')");
-////            statement.execute("insert into contacts (name,phone,email) values ('vlad',8987,'mail3')");
-//
-////            statement.execute("update contacts set phone=90 where name='ppk'");
-////            statement.execute("delete from contacts where name ='andre'");
-//
-////            statement.execute("select *from contacts");
-//////            ResultSet result = statement.getResultSet();
-//
-////                ResultSet result =statement.executeQuery("select *from contacts");
-////                while(result.next()){
-////                    System.out.println(result.getString("name")+ "  "+
-////                            result.getInt("phone")+" "+
-////                            result.getString("email"));
-////
-////                }
-////                result.close();
-//                statement.close();
-//                connection.close();
-//
-//            }catch (SQLException e){
-//                System.out.println("Something went wrong"+e.getMessage()+e.getStackTrace());
-//            }
-//        }
-//    }
 
 

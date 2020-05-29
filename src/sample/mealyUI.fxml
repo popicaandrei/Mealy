@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,6 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
@@ -35,7 +37,7 @@
                      <font>
                         <Font size="20.0" />
                      </font></Button>
-                  <Button fx:id="recepiesBoard" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#dashRecepies" prefHeight="80.0" prefWidth="262.0" style="-fx-background-color: #32543d;" text="Recepies" textFill="WHITE">
+                  <Button fx:id="recepiesBoard" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#dashRecepies" prefHeight="80.0" prefWidth="262.0" style="-fx-background-color: #32543d;" text="Recipes" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -46,28 +48,83 @@
                      </font>
                   </Button>
                </children></VBox>
-            <Label fx:id="labelPrincipal" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="33.0" prefHeight="80.0" prefWidth="614.0" style="-fx-background-color: #6fa87b;" text="Welcome to mealy!" textFill="#f8f5f5">
+            <Label fx:id="labelPrincipal" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="33.0" prefHeight="80.0" prefWidth="614.0" style="-fx-background-color: #6fa87b;" text="Welcome to mealy!" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
             <StackPane layoutX="292.0" layoutY="148.0">
                <children>
+                  <Pane fx:id="nutritionPanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #6fa87b;">
+                     <children>
+                        <Button fx:id="showIngCalories" layoutX="175.0" layoutY="329.0" mnemonicParsing="false" onAction="#actionShowIngCalories" prefHeight="51.0" prefWidth="193.0" style="-fx-background-color: #32543d;" text="Show me some stats" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
+                        <Label fx:id="vegetableLabel" alignment="CENTER" layoutX="269.0" layoutY="273.0" prefHeight="51.0" prefWidth="120.0" textAlignment="JUSTIFY" textFill="WHITE" />
+                        <Label fx:id="diaryLabel" alignment="CENTER" layoutX="14.0" layoutY="273.0" prefHeight="51.0" prefWidth="114.0" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="meatLabel" alignment="CENTER" layoutX="132.0" layoutY="273.0" prefHeight="51.0" prefWidth="133.0" textAlignment="JUSTIFY" textFill="WHITE" />
+                        <Label fx:id="recipeLabel" alignment="CENTER" layoutX="404.0" layoutY="273.0" prefHeight="51.0" prefWidth="120.0" textAlignment="JUSTIFY" textFill="WHITE" />
+                        <PieChart fx:id="caloriesChart" layoutX="19.0" layoutY="14.0" prefHeight="242.0" prefWidth="243.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" title="Calories" />
+                        <PieChart fx:id="quantityChart" layoutX="271.0" layoutY="14.0" prefHeight="242.0" prefWidth="249.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" title="Quantity" />
+                        <Text fx:id="textDiaryNutrition" fill="WHITE" layoutX="19.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diary" textAlignment="CENTER" wrappingWidth="120.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="textMeatNutrition" fill="WHITE" layoutX="139.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meat" textAlignment="CENTER" wrappingWidth="120.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="textVegetablesNutrition" fill="WHITE" layoutX="269.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vegetables" textAlignment="CENTER" wrappingWidth="120.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="textRecipeNutrition" fill="WHITE" layoutX="404.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipes" textAlignment="CENTER" wrappingWidth="120.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <GridPane fx:id="recepiesPanel" gridLinesVisible="true" prefHeight="304.0" prefWidth="532.0" style="-fx-background-color: #6fa87b;">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="532.0" minWidth="10.0" prefWidth="532.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="411.0" minHeight="10.0" prefHeight="411.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView fx:id="recipesTable" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #6fa87b;">
+                          <columns>
+                            <TableColumn fx:id="recipesRecipeColumn" prefWidth="155.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Recipe" />
+                            <TableColumn fx:id="recipesMeatColumn" prefWidth="103.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Meat" />
+                              <TableColumn fx:id="recipesVegetableColumn" prefWidth="111.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Vegetable" />
+                              <TableColumn fx:id="recipesDiaryColumn" prefWidth="104.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Diary" />
+                              <TableColumn fx:id="recipesTimeColumn" prefWidth="58.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Time" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </GridPane>
                   <Pane fx:id="ingredientsPanel" style="-fx-background-color: #ffffff;">
                      <children>
                         <TableView fx:id="tableVegetables" prefHeight="325.0" prefWidth="175.0" style="-fx-background-color: #a5c79d;">
                           <columns>
-                            <TableColumn fx:id="colVegetables" prefWidth="174.0" style="-fx-background-color: #3c6349; -fx-text-fill: #ffffff;" text="Vegetables/Fruits" />
+                            <TableColumn fx:id="colVegetables" prefWidth="174.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Vegetables/Fruits" />
                           </columns>
                         </TableView>
                         <TableView fx:id="tableMeat" layoutX="178.0" prefHeight="325.0" prefWidth="175.0" style="-fx-background-color: #a5c79d;">
                            <columns>
-                              <TableColumn fx:id="colMeat" prefWidth="174.0" style="-fx-background-color: #3c6349; -fx-text-fill: #ffffff;" text="Meat" />
+                              <TableColumn fx:id="colMeat" prefWidth="174.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Meat" />
                            </columns>
                         </TableView>
                         <TableView fx:id="tableDiary" layoutX="357.0" prefHeight="325.0" prefWidth="175.0" style="-fx-background-color: #a5c79d;">
                            <columns>
-                              <TableColumn fx:id="colDiary" prefWidth="174.0" style="-fx-background-color: #3c6349; -fx-text-fill: #ffffff;" text="Diary" />
+                              <TableColumn fx:id="colDiary" prefWidth="174.0" style="-fx-background-color: #6fa87b; -fx-text-fill: #ffffff;" text="Diary" />
                            </columns>
                         </TableView>
                         <TextField fx:id="textVegetables" layoutY="325.0" prefHeight="25.0" prefWidth="175.0" />
@@ -93,30 +150,14 @@
                               <Font name="Cambria" size="12.0" />
                            </font>
                         </Button>
-                        <Label fx:id="warningLabel" layoutY="386.0" prefHeight="25.0" prefWidth="355.0" text="*no other items to be deleted" textFill="#f80707" />
+                        <Label fx:id="warningLabel" layoutY="386.0" prefHeight="25.0" prefWidth="355.0" text="* deleted" textFill="#f80707" />
+                        <Button fx:id="updateQuantity" layoutX="178.0" layoutY="386.0" mnemonicParsing="false" onAction="#actionUpdate" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3c6349;" text="Update Quantity" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
                   </Pane>
-                  <GridPane fx:id="recepiesPanel" gridLinesVisible="true" prefHeight="304.0" prefWidth="532.0" style="-fx-background-color: #6fa87b;">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="532.0" minWidth="10.0" prefWidth="532.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="0.0" prefWidth="0.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="411.0" minHeight="10.0" prefHeight="411.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <TableView fx:id="recipesTable" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #6fa87b;">
-                          <columns>
-                            <TableColumn fx:id="recipesRecipeColumn" prefWidth="155.0" style="-fx-backgroud-color: #32543d;" text="Recipe" />
-                            <TableColumn fx:id="recipesMeatColumn" prefWidth="103.0" text="Meat" />
-                              <TableColumn fx:id="recipesVegetableColumn" prefWidth="111.0" text="Vegetable" />
-                              <TableColumn fx:id="recipesDiaryColumn" prefWidth="104.0" text="Diary" />
-                              <TableColumn fx:id="recepiesTimeColumn" prefWidth="58.0" text="Time" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </GridPane>
                </children>
             </StackPane>
          </children>

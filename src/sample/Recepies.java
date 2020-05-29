@@ -10,13 +10,12 @@ public class Recepies {
     private SimpleStringProperty recipeMeat;
     private SimpleStringProperty recipeTime;
 
-    public Recepies(SimpleStringProperty recipeName, SimpleStringProperty recipeVegetable
-                    ,SimpleStringProperty recipeDiary, SimpleStringProperty recipeMeat, SimpleStringProperty recipeTime) {
-        this.recipeName = recipeName;
-        this.recipeVegetable = recipeVegetable;
-        this.recipeDiary = recipeDiary;
-        this.recipeMeat = recipeMeat;
-        this.recipeTime = recipeTime;
+    public Recepies(String recipeName, String vegetableName, String diaryName, String meatName, String time) {
+        this.recipeName =new SimpleStringProperty(recipeName) ;
+        this.recipeVegetable =new SimpleStringProperty(vegetableName);
+        this.recipeDiary = new SimpleStringProperty(diaryName);
+        this.recipeMeat = new SimpleStringProperty(meatName);
+        this.recipeTime = new SimpleStringProperty(time);
     }
 
     public String getRecipeName() {
